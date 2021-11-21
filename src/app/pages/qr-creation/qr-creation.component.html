@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Qr Creation</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+     <mat-stepper orientation="vertical" #stepper (selectionChange)="changeStep($event)" >
+  <mat-step>
+    <ng-template matStepLabel>Seleccione las opciones</ng-template>
+    <ng-template matStepContent>
+     <app-qr-cr-up-form (formValueEmitter)="formValues($event)"></app-qr-cr-up-form>
+
+    </ng-template>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Seleccione los contactos</ng-template>
+    <ng-template matStepContent>
+      <app-contact-list></app-contact-list>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button matStepperNext>Next</button>
+    </ng-template>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Step 3</ng-template>
+    <p>This content was rendered eagerly</p>
+    <button mat-button matStepperPrevious>Back</button>
+  </mat-step>
+</mat-stepper>
+  
+</ion-content>

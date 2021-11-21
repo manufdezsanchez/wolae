@@ -1,0 +1,49 @@
+<form [formGroup]="qrForm" (ngSubmit)="submitForm()" novalidate>
+
+  <ion-item lines="full">
+    <ion-label position="stacked">Nombre </ion-label>
+    <ion-input formControlName="name" ngDefaultControl type="text"></ion-input>
+  </ion-item>
+  <span class="error ion-padding" *ngIf="isSubmitted && errorControl.name.errors?.required">
+    Name is required.
+  </span>
+  <span class="error ion-padding" *ngIf="isSubmitted && errorControl.name.errors?.minlength">
+    Molaría que tenga más de 2 caracteres
+  </span>
+
+  <ion-item lines="full">
+    <ion-label position="stacked">Tipo promo</ion-label>
+    <ion-select formControlName="type" (ionChange)="getType($event)" ngDefaultControl>
+      <ion-select-option value="1">Pase puerta</ion-select-option>
+      <ion-select-option value="2">Invitacion copa</ion-select-option>
+    </ion-select>
+      </ion-item>
+  <ion-item lines="full">
+    <ion-label position="stacked">Fecha de Inicio</ion-label>
+    <ion-datetime formControlName="startDate" (ionChange)="getDate($event, 'startDate')"   displayFormat="DD-MMM-YYYY hh:mm:ss A" pickerFormat="DD-MMM-YY HH:mm" ngDefaultControl [min]="defaultDate | date:'yyyy-MM-dd'"  [value]="defaultDate"  [placeholder]="defaultDate | date:'yyyy-MM-dd'"></ion-datetime>
+  </ion-item>
+  <ion-item lines="full">
+    <ion-label position="stacked">Hora de inicio</ion-label>
+    <ion-datetime formControlName="startHour" (ionChange)="getHour($event, 'startHour')"  display-format="HH:mm" picker-format="HH:mm" value="00:00" placeholder='00:00' ngDefaultControl ></ion-datetime>
+  </ion-item>
+  <ion-item lines="full">
+    <ion-label position="stacked">Fecha de expiración</ion-label>
+    <ion-datetime  (ionChange)="getDate($event, 'expires')" ngDefaultControl  [min]="defaultDate | date:'yyyy-MM-dd'" formControlName="expires" [value]="defaultDate" [placeholder]="defaultDate | date:'yyyy-MM-dd'" required></ion-datetime>
+  </ion-item>
+  <ion-item lines="full">
+    <ion-label position="stacked">Hora de expiración</ion-label>
+    <ion-datetime formControlName="expiresHour" (ionChange)="getHour($event, 'expiresHour')"   display-format="HH:mm" picker-format="HH:mm" value="00:00" placeholder='00:00' ngDefaultControl></ion-datetime>
+  </ion-item>
+  <ion-item lines="full">
+    <ion-label position="stacked">Nº de usos</ion-label>
+    <ion-input formControlName="uses" type="number" ngDefaultControl min="0" placeholder='Dejar a 0 para infinito'></ion-input>
+  </ion-item>
+  <span class="error ion-padding" *ngIf="isSubmitted && errorControl.uses.errors?.pattern">
+    Only numerical values allowed.
+  </span>
+  <ion-row>
+    <ion-col>
+      <ion-button type="submit" [disabled]="qrForm.valid" color="success" expand="block">Siguiente</ion-button>
+    </ion-col>
+  </ion-row>
+</form>
