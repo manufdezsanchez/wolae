@@ -1,0 +1,7 @@
+{
+  "name": "Wolae",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
