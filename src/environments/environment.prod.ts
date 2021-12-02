@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+    b: 'import zone.js/dist/zone-error'
 };

@@ -18,7 +18,7 @@
     <strong class="capitalize">{{ folder }}</strong>
     <p>No tienes creado ningun QR. Haz click en el boton inferior para empezar.</p>
   </div>
-
+  <button (click)="getUuid()">genera uuid</button>
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button (click)="navigateToCreationPage()">
       <ion-icon name="add"></ion-icon>
