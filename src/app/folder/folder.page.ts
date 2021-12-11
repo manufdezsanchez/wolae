@@ -26,4 +26,7 @@ export class FolderPage implements OnInit {
   navigateToCreationPage() {
     this.router.navigate(['qr-creation']);
   }
+  navigateToLoginPage() {
+    this.router.navigate(['login']);
+  }
 }
