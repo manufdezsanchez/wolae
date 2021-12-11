@@ -34,11 +34,7 @@
     "@ionic/angular": "^5.5.2",
     "buffer": "^6.0.3",
     "cordova-plugin-contacts": "^3.0.1",
-    "crypto": "^1.0.1",
-    "crypto-browserify": "^3.12.0",
-    "encrypt-decrypt-library": "^1.0.5",
     "rxjs": "~6.6.0",
-    "stream-browserify": "^3.0.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
   },
