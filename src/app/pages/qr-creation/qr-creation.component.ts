@@ -23,7 +23,4 @@ export class QrCreationComponent implements OnInit {
       }
   }
 
-    changeStep(e) {
-
-  }
 }
